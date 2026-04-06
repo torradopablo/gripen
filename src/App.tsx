@@ -360,12 +360,15 @@ export default function App() {
                   FINALIZAR COMPRA <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </a>
 
-                <div className="grid grid-cols-2 gap-2 mt-4 text-brand-text/60 text-[10px] sm:text-xs font-medium text-center uppercase tracking-wider">
-                  <div className="flex items-center justify-center gap-1.5">
+                <div className="grid grid-cols-3 gap-1 mt-4 text-brand-text/60 text-[9px] sm:text-[10px] md:text-xs font-bold text-center uppercase tracking-wider">
+                  <div className="flex flex-col items-center justify-center gap-1">
                     <ShieldCheck className="w-4 h-4 text-brand-blue/80" /> Compra Segura
                   </div>
-                  <div className="flex items-center justify-center gap-1.5">
-                    <Truck className="w-4 h-4 text-brand-blue/80" /> Envío Gratis hoy
+                  <div className="flex flex-col items-center justify-center gap-1 border-x border-white/5">
+                    <Truck className="w-4 h-4 text-brand-blue/80" /> Envío Gratis
+                  </div>
+                  <div className="flex flex-col items-center justify-center gap-1">
+                    <CreditCard className="w-4 h-4 text-brand-blue/80" /> 3 Cuotas Sin Interés
                   </div>
                 </div>
               </div>
