@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Check, X, ShieldCheck, CreditCard, Truck, ChevronRight, Magnet, ArrowDownToLine, Phone, Settings, Star, Instagram, Mail } from 'lucide-react';
+import { Check, X, ShieldCheck, CreditCard, Truck, ChevronRight, Magnet, ArrowDownToLine, Phone, Settings, Star, Instagram, Mail, Music2 } from 'lucide-react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'motion/react';
 
 // Trust Badge Component
@@ -239,6 +239,16 @@ export default function App() {
   // URL Oficial del producto en Gripen Tiendanube
   const CHECKOUT_URL = "https://gripen.mitiendanube.com/productos/soporte-gripen-ultra-firme-soporte-magnetico-articulado-de-alta-resistencia/";
 
+  const trackCheckout = () => {
+    if (typeof window !== 'undefined' && (window as any).fbq) {
+      (window as any).fbq('track', 'InitiateCheckout', {
+        content_name: 'Soporte Gripen Ultra-Firme',
+        value: parseFloat(discountedPrice.replace(/\D/g, '')),
+        currency: 'ARS'
+      });
+    }
+  };
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -278,7 +288,13 @@ export default function App() {
               className={`w-auto object-contain transition-all duration-500 ${isScrolled ? 'h-13 md:h-17' : 'h-13 md:h-17'}`}
             />
           </div>
-          <a href={CHECKOUT_URL} target="_blank" rel="noopener noreferrer" className={`hidden md:flex items-center gap-2 bg-brand-text text-brand-bg px-6 py-2 rounded-full font-bold hover:bg-brand-blue hover:text-white transition-all shadow-lg hover:shadow-brand-blue/50 ${isScrolled ? 'scale-90' : 'scale-100'}`}>
+          <a
+            href={CHECKOUT_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={trackCheckout}
+            className={`hidden md:flex items-center gap-2 bg-brand-text text-brand-bg px-6 py-2 rounded-full font-bold hover:bg-brand-blue hover:text-white transition-all shadow-lg hover:shadow-brand-blue/50 ${isScrolled ? 'scale-90' : 'scale-100'}`}
+          >
             Comprar Ahora <ChevronRight className="w-4 h-4" />
           </a>
         </div>
@@ -356,7 +372,13 @@ export default function App() {
                   <span className="text-brand-text/80 text-sm font-medium">4.9/5 en Reseñas</span>
                 </div>
 
-                <a href={CHECKOUT_URL} target="_blank" rel="noopener noreferrer" className="w-full bg-brand-blue text-white py-4 rounded-xl font-bold text-lg hover:bg-brand-blue-light transition-all flex items-center justify-center gap-2 shadow-lg shadow-brand-blue/30 hover:shadow-brand-blue/60 group">
+                <a
+                  href={CHECKOUT_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={trackCheckout}
+                  className="w-full bg-brand-blue text-white py-4 rounded-xl font-bold text-lg hover:bg-brand-blue-light transition-all flex items-center justify-center gap-2 shadow-lg shadow-brand-blue/30 hover:shadow-brand-blue/60 group"
+                >
                   FINALIZAR COMPRA <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </a>
 
@@ -813,7 +835,13 @@ export default function App() {
             </div>
 
             <div className="flex justify-center">
-              <a href={CHECKOUT_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto bg-brand-blue text-white px-12 py-5 rounded-full font-bold text-xl hover:bg-brand-blue-light transition-all flex items-center justify-center gap-3 shadow-lg shadow-brand-blue/30 hover:shadow-brand-blue/60 hover:-translate-y-1 group">
+              <a
+                href={CHECKOUT_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={trackCheckout}
+                className="w-full sm:w-auto bg-brand-blue text-white px-12 py-5 rounded-full font-bold text-xl hover:bg-brand-blue-light transition-all flex items-center justify-center gap-3 shadow-lg shadow-brand-blue/30 hover:shadow-brand-blue/60 hover:-translate-y-1 group"
+              >
                 Finalizar Compra <ChevronRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
               </a>
             </div>
@@ -869,6 +897,10 @@ export default function App() {
               <a href="https://instagram.com/gripen.shop" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-white transition-colors group">
                 <Instagram className="w-5 h-5 opacity-70 group-hover:opacity-100 transition-opacity" />
                 <span>gripen.shop</span>
+              </a>
+              <a href="https://tiktok.com/@gripen.oficial" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-white transition-colors group">
+                <Music2 className="w-5 h-5 opacity-70 group-hover:opacity-100 transition-opacity" />
+                <span>gripen.oficial</span>
               </a>
               <a href="mailto:gripen.store@gmail.com" className="flex items-center gap-2 hover:text-white transition-colors group">
                 <Mail className="w-5 h-5 opacity-70 group-hover:opacity-100 transition-opacity" />
@@ -957,7 +989,13 @@ export default function App() {
 
       {/* Mobile Sticky CTA */}
       <div className="md:hidden fixed bottom-0 left-0 w-full p-4 glass-panel z-50 animate-in slide-in-from-bottom pb-8">
-        <a href={CHECKOUT_URL} target="_blank" rel="noopener noreferrer" className="w-full bg-brand-blue text-white py-4 rounded-full font-bold text-lg shadow-lg shadow-brand-blue/40 flex items-center justify-center gap-2">
+        <a
+          href={CHECKOUT_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={trackCheckout}
+          className="w-full bg-brand-blue text-white py-4 rounded-full font-bold text-lg shadow-lg shadow-brand-blue/40 flex items-center justify-center gap-2"
+        >
           Comprar Ahora <ChevronRight className="w-5 h-5" />
         </a>
       </div>
