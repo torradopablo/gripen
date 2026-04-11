@@ -544,7 +544,7 @@ export default function App() {
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               className="col-span-1 md:col-span-3 relative h-[300px] md:h-[400px] rounded-3xl overflow-hidden group"
             >
-              <img src="/img/Soporte_articulado_MagSafe_202604031820.jpeg" className="w-full h-full object-cover object-center group-hover:scale-105 transition duration-700" alt="Versatility" />
+              <img src="/img/Soporte_MagSafe_con_202604111914.jpeg" className="w-full h-full object-cover object-center group-hover:scale-105 transition duration-700" alt="Versatility" />
               <div className="absolute inset-0 bg-gradient-to-t from-brand-bg/90 via-black/20 to-transparent flex flex-col justify-end p-8 md:items-center md:text-center">
                 <h3 className="text-2xl font-bold mb-2">Soporte Multisuperficie</h3>
                 <p className="text-brand-text/70 font-light max-w-lg">De tu escritorio a la cocina. Tu dispositivo siempre seguro y visible en cualquier ambiente.</p>
