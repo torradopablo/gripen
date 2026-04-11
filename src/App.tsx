@@ -861,9 +861,6 @@ export default function App() {
             {/* Detailed Shipping Info */}
             <div className="mt-12 pt-8 border-t border-black/5 max-w-2xl mx-auto">
               <div className="flex items-center justify-center gap-4 mb-6">
-                <div className="h-10 bg-white rounded-lg flex items-center justify-center overflow-hidden shadow-md">
-                  <img src="/img/logo_correo_argentino_clean.png" alt="Correo Argentino" className="h-[120%] w-auto object-contain scale-110" />
-                </div>
                 <span className="text-brand-text/60 font-bold uppercase tracking-widest text-xs">Tiempos de Entrega</span>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
