@@ -369,7 +369,7 @@ export default function App() {
                     <Star className="w-4 h-4 fill-current" />
                     <Star className="w-4 h-4 fill-current" />
                   </div>
-                  <span className="text-brand-text/80 text-sm font-medium">4.9/5 en Reseñas</span>
+                  <span className="text-brand-text/80 text-sm font-medium">4.8/5 en Reseñas</span>
                 </div>
 
                 <a
