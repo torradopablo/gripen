@@ -12,7 +12,7 @@ const TrustBadge = ({ icon: Icon, text }: { icon: any, text: string }) => (
 
 // Infinite Scrolling Banner
 const ScrollingBanner = () => (
-  <div className="bg-brand-bg border-b border-white/5 py-3 overflow-hidden flex relative z-[60]">
+  <div className="bg-brand-bg border-b border-black/5 py-3 overflow-hidden flex relative z-[60]">
     <motion.div
       animate={{ x: ["0%", "-50%"] }}
       transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
@@ -40,7 +40,7 @@ const Feature = ({ icon: Icon, title, description }: { icon: any, title: string,
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, margin: "-100px" }}
-    className="p-6 rounded-2xl bg-brand-metal/20 border border-white/5 hover:border-brand-blue/30 transition-colors"
+    className="p-6 rounded-2xl bg-brand-metal/20 border border-black/5 hover:border-brand-blue/30 transition-colors"
   >
     <div className="bg-brand-blue/10 w-14 h-14 rounded-xl flex items-center justify-center mb-4">
       <Icon className="w-7 h-7 text-brand-blue" />
@@ -52,7 +52,7 @@ const Feature = ({ icon: Icon, title, description }: { icon: any, title: string,
 
 // Rating Stars with partial fill support
 const RatingStars = ({ rating, size = 5 }: { rating: number, size?: number }) => (
-  <div className="flex gap-1 text-brand-blue-light">
+  <div className="flex gap-1 text-brand-blue">
     {[...Array(5)].map((_, i) => {
       const fill = Math.min(Math.max(rating - i, 0), 1);
       return (
@@ -112,11 +112,11 @@ const Modal = ({ isOpen, onClose, title, children }: { isOpen: boolean, onClose:
           initial={{ opacity: 0, scale: 0.95, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
-          className="relative w-full max-w-2xl max-h-[80vh] overflow-hidden glass-panel rounded-3xl flex flex-col shadow-2xl border border-white/10"
+          className="relative w-full max-w-2xl max-h-[80vh] overflow-hidden glass-panel rounded-3xl flex flex-col shadow-2xl border border-gray-200"
         >
-          <div className="p-6 border-b border-white/5 flex justify-between items-center bg-brand-metal/20">
+          <div className="p-6 border-b border-black/5 flex justify-between items-center bg-brand-metal/20">
             <h3 className="text-xl font-bold">{title}</h3>
-            <button onClick={onClose} className="p-2 hover:bg-white/10 rounded-full transition-colors">
+            <button onClick={onClose} className="p-2 hover:bg-black/10 rounded-full transition-colors">
               <X className="w-6 h-6" />
             </button>
           </div>
@@ -198,13 +198,13 @@ const REVIEWS = [
 const FaqItem = ({ question, answer }: { question: string, answer: string }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="border border-white/10 rounded-xl overflow-hidden glass-panel mb-4 shadow-sm hover:border-brand-blue/30 transition-all duration-300">
+    <div className="border border-gray-200 rounded-xl overflow-hidden glass-panel mb-4 shadow-sm hover:border-brand-blue/30 transition-all duration-300">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full text-left px-6 py-4 font-bold flex justify-between items-center hover:bg-white/5 transition-colors group"
+        className="w-full text-left px-6 py-4 font-bold flex justify-between items-center hover:bg-black/5 transition-colors group"
       >
-        <span className="text-brand-text/90 group-hover:text-white transition-colors">{question}</span>
-        <span className="text-brand-blue-light text-2xl leading-none transition-transform duration-300" style={{ transform: isOpen ? 'rotate(45deg)' : 'rotate(0)' }}>+</span>
+        <span className="text-brand-text/90 group-hover:text-brand-blue transition-colors">{question}</span>
+        <span className="text-brand-blue text-2xl leading-none transition-transform duration-300" style={{ transform: isOpen ? 'rotate(45deg)' : 'rotate(0)' }}>+</span>
       </button>
       <AnimatePresence>
         {isOpen && (
@@ -267,7 +267,7 @@ export default function App() {
     <div className="min-h-screen bg-brand-bg text-brand-text selection:bg-brand-blue/30 overflow-x-hidden font-sans">
 
       {/* Top Static Announcement Bar */}
-      <div className="bg-brand-blue-dark text-white py-2 px-4 text-center text-xs md:text-sm font-bold border-b border-white/10 relative z-[70]">
+      <div className="bg-brand-blue-dark text-white py-2 px-4 text-center text-xs md:text-sm font-bold border-b border-gray-200 relative z-[70]">
         <div className="container mx-auto flex items-center justify-center gap-2">
           <span>🔥</span>
           <span className="uppercase tracking-widest">Oferta exclusiva:</span>
@@ -279,7 +279,7 @@ export default function App() {
       <ScrollingBanner />
 
       {/* Navigation */}
-      <nav className={`fixed w-full z-50 transition-all duration-500 ${isScrolled ? 'top-0 bg-brand-bg/95 backdrop-blur-md border-b border-white/5 py-2 shadow-2xl' : 'top-[84px] md:top-[80px] bg-brand-bg/0 py-6'}`}>
+      <nav className={`fixed w-full z-50 transition-all duration-500 bg-[#2F3034] border-b border-white/10 ${isScrolled ? 'top-0 py-2 shadow-2xl bg-opacity-95 backdrop-blur-md' : 'top-[84px] md:top-[80px] py-4 md:py-6 shadow-xl'}`}>
         <div className="container mx-auto px-6 flex justify-center md:justify-between items-center text-center md:text-left">
           <div className="flex items-center gap-2">
             <img
@@ -293,7 +293,7 @@ export default function App() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={trackCheckout}
-            className={`hidden md:flex items-center gap-2 bg-brand-text text-brand-bg px-6 py-2 rounded-full font-bold hover:bg-brand-blue hover:text-white transition-all shadow-lg hover:shadow-brand-blue/50 ${isScrolled ? 'scale-90' : 'scale-100'}`}
+            className={`hidden md:flex items-center gap-2 bg-brand-text text-brand-bg px-6 py-2 rounded-full font-bold hover:bg-brand-blue hover:text-gray-900 transition-all shadow-lg hover:shadow-brand-blue/50 ${isScrolled ? 'scale-90' : 'scale-100'}`}
           >
             Comprar Ahora <ChevronRight className="w-4 h-4" />
           </a>
@@ -313,7 +313,7 @@ export default function App() {
               transition={{ duration: 0.8 }}
               className="lg:w-1/2 text-center lg:text-left z-10 w-full"
             >
-              <div className="inline-block px-4 py-1.5 rounded-full border border-brand-blue/30 bg-brand-blue/10 text-brand-blue-light font-bold text-sm mb-6 uppercase tracking-wider">
+              <div className="inline-block px-4 py-1.5 rounded-full border border-brand-blue/30 bg-brand-blue/10 text-brand-blue font-bold text-sm mb-6 uppercase tracking-wider">
                 Soporte Gripen Ultra-Firme
               </div>
               <h1 className="hidden lg:block text-5xl md:text-7xl font-black mb-6 leading-[1.1] tracking-tight">
@@ -336,7 +336,7 @@ export default function App() {
                     <h1 className="text-4xl xs:text-5xl font-black leading-tight tracking-tight mb-2">
                       El <span className="blue-gradient-text inline-block">punto justo</span> para ver tu celular.
                     </h1>
-                    <p className="text-white/80 font-light text-sm">
+                    <p className="text-gray-900/80 font-light text-sm">
                       Aluminio sólido. Firmeza absoluta.
                     </p>
                   </div>
@@ -344,12 +344,12 @@ export default function App() {
               </div>
 
               <p className="hidden lg:block text-lg md:text-xl text-brand-text/70 mb-10 font-light max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                Olvidate de los soportes que vibran. El <span className="text-white font-medium">Soporte Gripen Ultra-Firme</span> es de aluminio macizo y ofrece un agarre sólido para que tu dispositivo no se mueva jamás.
+                Olvidate de los soportes que vibran. El <span className="text-gray-900 font-medium">Soporte Gripen Ultra-Firme</span> es de aluminio macizo y ofrece un agarre sólido para que tu dispositivo no se mueva jamás.
               </p>
 
               <div className="flex flex-col mb-10 items-center lg:items-start gap-2">
                 <div className="flex items-center gap-3">
-                  <span className="text-4xl md:text-5xl font-black text-white tracking-tight">{formatPrice(discountedPrice)}</span>
+                  <span className="text-4xl md:text-5xl font-black text-gray-900 tracking-tight">{formatPrice(discountedPrice)}</span>
                   <div className="bg-green-500/20 text-green-400 px-2 py-1 rounded text-sm font-bold border border-green-500/30">
                     -{(100 - (parseInt(discountedPrice.replace(/\D/g, '')) / parseInt(regularPrice.replace(/\D/g, '')) * 100)).toFixed(0)}% OFF
                   </div>
@@ -360,7 +360,7 @@ export default function App() {
                 </div>
               </div>
 
-              <div className="bg-white/5 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.05)] rounded-2xl p-6 mb-4 lg:max-w-md w-full relative z-[60] backdrop-blur-md">
+              <div className="bg-black/5 border border-gray-300 shadow-lg rounded-2xl p-6 mb-4 lg:max-w-md w-full relative z-[60] backdrop-blur-md">
                 <div className="flex items-center gap-3 mb-4 justify-center lg:justify-start">
                   <div className="flex gap-1 text-yellow-400">
                     <Star className="w-4 h-4 fill-current" />
@@ -386,7 +386,7 @@ export default function App() {
                   <div className="flex flex-col items-center justify-center gap-1">
                     <ShieldCheck className="w-4 h-4 text-brand-blue/80" /> Compra Segura
                   </div>
-                  <div className="flex flex-col items-center justify-center gap-1 border-x border-white/5">
+                  <div className="flex flex-col items-center justify-center gap-1 border-x border-black/5">
                     <Truck className="w-4 h-4 text-brand-blue/80" /> Envío Gratis
                   </div>
                   <div className="flex flex-col items-center justify-center gap-1">
@@ -439,13 +439,13 @@ export default function App() {
                 alt="Detalle Soporte Gripen Ultra-Firme"
                 className="relative rounded-3xl shadow-2xl w-full object-cover"
               />
-              <div className="absolute bottom-4 left-4 right-4 bg-white/5 backdrop-blur-[2px] rounded-xl p-3 flex items-center justify-between border border-white/10">
+              <div className="absolute bottom-4 left-4 right-4 bg-black/5 backdrop-blur-[2px] rounded-xl p-3 flex items-center justify-between border border-gray-200">
                 <div>
-                  <div className="text-[10px] text-brand-blue-light font-bold uppercase tracking-widest opacity-80">Acabado CNC</div>
-                  <div className="text-white/90 text-sm font-medium">Textura antideslizante</div>
+                  <div className="text-[10px] text-brand-blue font-bold uppercase tracking-widest opacity-80">Acabado CNC</div>
+                  <div className="text-gray-900/90 text-sm font-medium">Textura antideslizante</div>
                 </div>
                 <div className="w-8 h-8 rounded-full bg-brand-blue/10 flex items-center justify-center border border-brand-blue/20">
-                  <Settings className="text-brand-blue-light/70 w-4 h-4" />
+                  <Settings className="text-brand-blue/70 w-4 h-4" />
                 </div>
               </div>
             </motion.div>
@@ -460,7 +460,7 @@ export default function App() {
 
                 <div className="space-y-6">
                   {/* Row */}
-                  <div className="flex flex-col md:grid md:grid-cols-12 gap-2 md:gap-4 pb-4 border-b border-white/5 md:items-center">
+                  <div className="flex flex-col md:grid md:grid-cols-12 gap-2 md:gap-4 pb-4 border-b border-black/5 md:items-center">
                     <div className="md:col-span-3 text-brand-text/50 font-medium text-sm md:text-base">Material</div>
                     <div className="grid grid-cols-2 md:contents gap-2">
                       <div className="md:col-span-5 font-bold flex items-start md:items-center gap-2 text-sm md:text-base"><Check className="w-5 h-5 text-brand-blue shrink-0 md:mt-0 mt-0.5" /> <span>Aluminio CNC</span></div>
@@ -468,7 +468,7 @@ export default function App() {
                     </div>
                   </div>
                   {/* Row */}
-                  <div className="flex flex-col md:grid md:grid-cols-12 gap-2 md:gap-4 pb-4 border-b border-white/5 md:items-center">
+                  <div className="flex flex-col md:grid md:grid-cols-12 gap-2 md:gap-4 pb-4 border-b border-black/5 md:items-center">
                     <div className="md:col-span-3 text-brand-text/50 font-medium text-sm md:text-base">Imanes</div>
                     <div className="grid grid-cols-2 md:contents gap-2">
                       <div className="md:col-span-5 font-bold flex items-start md:items-center gap-2 text-sm md:text-base"><Check className="w-5 h-5 text-brand-blue shrink-0 md:mt-0 mt-0.5" /> <span>N52 Ultra Poderosos</span></div>
@@ -476,7 +476,7 @@ export default function App() {
                     </div>
                   </div>
                   {/* Row */}
-                  <div className="flex flex-col md:grid md:grid-cols-12 gap-2 md:gap-4 pb-4 border-b border-white/5 md:items-center">
+                  <div className="flex flex-col md:grid md:grid-cols-12 gap-2 md:gap-4 pb-4 border-b border-black/5 md:items-center">
                     <div className="md:col-span-3 text-brand-text/50 font-medium text-sm md:text-base">Ajuste</div>
                     <div className="grid grid-cols-2 md:contents gap-2">
                       <div className="md:col-span-5 font-bold flex items-start md:items-center gap-2 text-sm md:text-base"><Check className="w-5 h-5 text-brand-blue shrink-0 md:mt-0 mt-0.5" /> <span>Perilla OPEN/Tight</span></div>
@@ -484,7 +484,7 @@ export default function App() {
                     </div>
                   </div>
                   {/* Row */}
-                  <div className="flex flex-col md:grid md:grid-cols-12 gap-2 md:gap-4 pb-4 border-b border-white/5 md:items-center">
+                  <div className="flex flex-col md:grid md:grid-cols-12 gap-2 md:gap-4 pb-4 border-b border-black/5 md:items-center">
                     <div className="md:col-span-3 text-brand-text/50 font-medium text-sm md:text-base">Firmeza</div>
                     <div className="grid grid-cols-2 md:contents gap-2">
                       <div className="md:col-span-5 font-bold flex items-start md:items-center gap-2 text-sm md:text-base"><Check className="w-5 h-5 text-brand-blue shrink-0 md:mt-0 mt-0.5" /> <span>Efecto Antigravity</span></div>
@@ -494,7 +494,7 @@ export default function App() {
                 </div>
 
                 <div className="mt-8 bg-brand-blue/10 border border-brand-blue/20 rounded-xl p-4 text-center">
-                  <p className="text-brand-blue-light font-medium italic">
+                  <p className="text-brand-blue font-medium italic">
                     "Lo instalás, apoyás el celu y te olvidás. Es el soporte definitivo."
                   </p>
                 </div>
@@ -564,7 +564,7 @@ export default function App() {
             <p className="text-xl text-brand-text/60 max-w-2xl mx-auto font-light">Prepará tu soporte en segundos. Sin herramientas, pegás y listo.</p>
           </div>
 
-          <div className="w-full max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-2xl shadow-brand-blue/5 border border-white/5 bg-white/5">
+          <div className="w-full max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-2xl shadow-brand-blue/5 border border-black/5 bg-black/5">
             {/* Desktop Image */}
             <img
               src="/img/Explicacion-web.jpeg"
@@ -628,7 +628,7 @@ export default function App() {
             {/* Reviews Summary */}
             <div className="md:w-1/3 glass-panel p-8 rounded-3xl sticky top-24">
               <div className="flex items-end gap-3 mb-4">
-                <span className="text-6xl font-black text-brand-blue-light leading-none">4.8</span>
+                <span className="text-6xl font-black text-brand-blue leading-none">4.8</span>
                 <div className="pb-1">
                   <div className="mb-1">
                     <RatingStars rating={4.8} size={5} />
@@ -644,10 +644,10 @@ export default function App() {
               <div className="space-y-4">
                 <h4 className="text-sm font-bold text-brand-text/80 uppercase tracking-wider mb-3">Menciones en reseñas</h4>
                 <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1.5 bg-brand-blue/10 border border-brand-blue/20 rounded-full text-xs font-medium text-brand-blue-light">excelente calidad (24)</span>
-                  <span className="px-3 py-1.5 bg-brand-blue/10 border border-brand-blue/20 rounded-full text-xs font-medium text-brand-blue-light">agarre perfecto (18)</span>
-                  <span className="px-3 py-1.5 bg-brand-blue/10 border border-brand-blue/20 rounded-full text-xs font-medium text-brand-blue-light">diseño premium (12)</span>
-                  <span className="px-3 py-1.5 bg-brand-blue/10 border border-brand-blue/20 rounded-full text-xs font-medium text-brand-blue-light">muy práctico (5)</span>
+                  <span className="px-3 py-1.5 bg-brand-blue/10 border border-brand-blue/20 rounded-full text-xs font-medium text-brand-blue">excelente calidad (24)</span>
+                  <span className="px-3 py-1.5 bg-brand-blue/10 border border-brand-blue/20 rounded-full text-xs font-medium text-brand-blue">agarre perfecto (18)</span>
+                  <span className="px-3 py-1.5 bg-brand-blue/10 border border-brand-blue/20 rounded-full text-xs font-medium text-brand-blue">diseño premium (12)</span>
+                  <span className="px-3 py-1.5 bg-brand-blue/10 border border-brand-blue/20 rounded-full text-xs font-medium text-brand-blue">muy práctico (5)</span>
                 </div>
               </div>
             </div>
@@ -659,7 +659,7 @@ export default function App() {
                 <div key={i} className="glass-panel p-6 rounded-3xl break-inside-avoid hover:border-brand-blue/30 transition-all duration-300">
                   <div className="flex justify-between items-start mb-4">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-brand-blue/20 text-brand-blue-light font-bold flex items-center justify-center border border-brand-blue/30 shadow-inner">
+                      <div className="w-10 h-10 rounded-full bg-brand-blue/20 text-brand-blue font-bold flex items-center justify-center border border-brand-blue/30 shadow-inner">
                         {review.author.charAt(0)}
                       </div>
                       <div className="flex flex-col">
@@ -681,7 +681,7 @@ export default function App() {
                   </p>
 
                   {review.image && (
-                    <div className="mt-4 rounded-2xl overflow-hidden border border-white/5 relative group">
+                    <div className="mt-4 rounded-2xl overflow-hidden border border-black/5 relative group">
                       <img src={review.image} alt={`Foto de la reseña de ${review.author}`} className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none"></div>
                     </div>
@@ -749,14 +749,14 @@ export default function App() {
 
             <div className="flex flex-col lg:flex-row items-center gap-12">
               <div className="lg:w-1/2 text-center lg:text-left">
-                <div className="inline-block px-4 py-1.5 rounded-full border border-brand-blue/30 bg-brand-blue/10 text-brand-blue-light font-bold text-xs mb-6 uppercase tracking-[0.2em]">
+                <div className="inline-block px-4 py-1.5 rounded-full border border-brand-blue/30 bg-brand-blue/10 text-brand-blue font-bold text-xs mb-6 uppercase tracking-[0.2em]">
                   Compromiso Gripen
                 </div>
                 <h2 className="text-4xl md:text-5xl font-black mb-6 leading-tight">
                   Tu tranquilidad es <br /> <span className="blue-gradient-text text-glow">nuestra prioridad.</span>
                 </h2>
                 <p className="text-lg md:text-xl text-brand-text/70 mb-8 font-light leading-relaxed">
-                  Sabemos que el <span className="text-white font-medium">Soporte Gripen Ultra-Firme</span> es el mejor soporte que vas a tener. Por eso, te respaldamos con una <span className="text-brand-blue-light font-bold underline decoration-brand-blue/30 underline-offset-4">Garantía Real de 30 Días</span>.
+                  Sabemos que el <span className="text-gray-900 font-medium">Soporte Gripen Ultra-Firme</span> es el mejor soporte que vas a tener. Por eso, te respaldamos con una <span className="text-brand-blue font-bold underline decoration-brand-blue/30 underline-offset-4">Garantía Real de 30 Días</span>.
                 </p>
                 <div className="space-y-4 inline-block text-left">
                   <div className="flex items-center gap-3 text-brand-text/80">
@@ -794,8 +794,8 @@ export default function App() {
                     className="w-full max-w-[320px] md:max-w-[400px] aspect-square object-cover rounded-full border-4 border-brand-blue/20 drop-shadow-[0_20px_50px_rgba(0,119,255,0.3)] transition-all duration-500 group-hover:drop-shadow-[0_25px_60px_rgba(0,119,255,0.5)]"
                   />
                   {/* Decorative Elements */}
-                  <div className="absolute -top-4 -right-4 w-12 h-12 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full flex items-center justify-center -z-10 group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform duration-500">
-                    <ShieldCheck className="w-5 h-5 text-brand-blue-light" />
+                  <div className="absolute -top-4 -right-4 w-12 h-12 bg-black/5 backdrop-blur-sm border border-gray-200 rounded-full flex items-center justify-center -z-10 group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform duration-500">
+                    <ShieldCheck className="w-5 h-5 text-brand-blue" />
                   </div>
                 </motion.div>
               </div>
@@ -827,7 +827,7 @@ export default function App() {
             <div className="flex flex-col items-center justify-center mb-10 gap-1">
               <span className="text-brand-text/40 text-2xl font-medium line-through decoration-red-500/50 decoration-2">{formatPrice(regularPrice)}</span>
               <div className="flex items-center gap-4">
-                <span className="text-6xl md:text-7xl font-black text-white tracking-tight">{formatPrice(discountedPrice)}</span>
+                <span className="text-6xl md:text-7xl font-black text-gray-900 tracking-tight">{formatPrice(discountedPrice)}</span>
                 <div className="bg-green-500/20 text-green-400 px-3 py-1.5 rounded-lg font-bold border border-green-500/30 text-lg sm:text-xl">
                   -{(100 - (parseInt(discountedPrice.replace(/\D/g, '')) / parseInt(regularPrice.replace(/\D/g, '')) * 100)).toFixed(0)}%
                 </div>
@@ -859,7 +859,7 @@ export default function App() {
             </div>
 
             {/* Detailed Shipping Info */}
-            <div className="mt-12 pt-8 border-t border-white/5 max-w-2xl mx-auto">
+            <div className="mt-12 pt-8 border-t border-black/5 max-w-2xl mx-auto">
               <div className="flex items-center justify-center gap-4 mb-6">
                 <div className="h-10 bg-white rounded-lg flex items-center justify-center overflow-hidden shadow-md">
                   <img src="/img/logo_correo_argentino_clean.png" alt="Correo Argentino" className="h-[120%] w-auto object-contain scale-110" />
@@ -867,16 +867,16 @@ export default function App() {
                 <span className="text-brand-text/60 font-bold uppercase tracking-widest text-xs">Tiempos de Entrega</span>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
-                <div className="p-3 rounded-xl bg-white/5 border border-white/5">
-                  <div className="text-brand-blue-light font-bold text-sm">CABA</div>
+                <div className="p-3 rounded-xl bg-black/5 border border-black/5">
+                  <div className="text-brand-blue font-bold text-sm">CABA</div>
                   <div className="text-brand-text/60 text-xs mt-1">2 a 4 días hábiles</div>
                 </div>
-                <div className="p-3 rounded-xl bg-white/5 border border-white/5">
-                  <div className="text-brand-blue-light font-bold text-sm">GBA</div>
+                <div className="p-3 rounded-xl bg-black/5 border border-black/5">
+                  <div className="text-brand-blue font-bold text-sm">GBA</div>
                   <div className="text-brand-text/60 text-xs mt-1">3 a 5 días hábiles</div>
                 </div>
-                <div className="p-3 rounded-xl bg-white/5 border border-white/5">
-                  <div className="text-brand-blue-light font-bold text-sm">INTERIOR</div>
+                <div className="p-3 rounded-xl bg-black/5 border border-black/5">
+                  <div className="text-brand-blue font-bold text-sm">INTERIOR</div>
                   <div className="text-brand-text/60 text-xs mt-1">4 a 10 días hábiles</div>
                 </div>
               </div>
@@ -887,40 +887,40 @@ export default function App() {
       </RevealSection>
 
       {/* Footer */}
-      <footer className="bg-brand-bg border-t border-brand-metal/20 pt-16 pb-32 md:pb-16 text-brand-text/60">
+      <footer className="bg-[#2F3034] text-white/70 border-t border-brand-metal/20 pt-16 pb-32 md:pb-16">
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
             <div className="flex items-center gap-2">
               <img src="/img/Logo.png" alt="Gripen Logo" className="h-12 md:h-16 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity" />
             </div>
             <div className="flex flex-wrap justify-center gap-6">
-              <a href="https://instagram.com/gripen.shop" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-white transition-colors group">
+              <a href="https://instagram.com/gripen.shop" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-brand-blue transition-colors group">
                 <Instagram className="w-5 h-5 opacity-70 group-hover:opacity-100 transition-opacity" />
                 <span>gripen.shop</span>
               </a>
-              <a href="https://tiktok.com/@gripen.oficial" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-white transition-colors group">
+              <a href="https://tiktok.com/@gripen.oficial" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-brand-blue transition-colors group">
                 <Music2 className="w-5 h-5 opacity-70 group-hover:opacity-100 transition-opacity" />
                 <span>gripen.oficial</span>
               </a>
-              <a href="mailto:gripen.store@gmail.com" className="flex items-center gap-2 hover:text-white transition-colors group">
+              <a href="mailto:gripen.store@gmail.com" className="flex items-center gap-2 hover:text-brand-blue transition-colors group">
                 <Mail className="w-5 h-5 opacity-70 group-hover:opacity-100 transition-opacity" />
                 <span>gripen.store@gmail.com</span>
               </a>
               <button
                 onClick={() => setActiveModal('terms')}
-                className="hover:text-white transition-colors cursor-pointer"
+                className="hover:text-brand-blue transition-colors cursor-pointer"
               >
                 Términos
               </button>
               <button
                 onClick={() => setActiveModal('privacy')}
-                className="hover:text-white transition-colors cursor-pointer"
+                className="hover:text-brand-blue transition-colors cursor-pointer"
               >
                 Privacidad
               </button>
             </div>
           </div>
-          <div className="text-center text-sm border-t border-white/5 pt-8">
+          <div className="text-center text-sm border-t border-white/10 pt-8">
             &copy; 2026 Gripen Accesorios. Todos los derechos reservados.
           </div>
         </div>
@@ -934,15 +934,15 @@ export default function App() {
       >
         <div className="space-y-6">
           <section>
-            <h4 className="text-white font-bold mb-2 uppercase text-xs tracking-widest">1. Introducción</h4>
+            <h4 className="text-gray-900 font-bold mb-2 uppercase text-xs tracking-widest">1. Introducción</h4>
             <p>Al utilizar este sitio web y adquirir los productos Gripen, usted acepta los presentes términos y condiciones en su totalidad. Gripen se reserva el derecho de modificar estos términos en cualquier momento.</p>
           </section>
           <section>
-            <h4 className="text-white font-bold mb-2 uppercase text-xs tracking-widest">2. Garantía Oficial</h4>
+            <h4 className="text-gray-900 font-bold mb-2 uppercase text-xs tracking-widest">2. Garantía Oficial</h4>
             <p>Todos los Soportes Gripen cuentan con una garantía oficial de 30 días contra defectos de fabricación. Esta garantía no cubre daños por mal uso, caídas accidentales o modificaciones no autorizadas.</p>
           </section>
           <section>
-            <h4 className="text-white font-bold mb-2 uppercase text-xs tracking-widest">3. Envíos y Entregas</h4>
+            <h4 className="text-gray-900 font-bold mb-2 uppercase text-xs tracking-widest">3. Envíos y Entregas</h4>
             <p>Los envíos se realizan de forma GRATUITA a todo el país exclusivamente a través de Correo Argentino. Los tiempos estimados de entrega son:</p>
             <ul className="mt-2 space-y-1 list-disc list-inside ml-2">
               <li>CABA: 2 a 4 días hábiles.</li>
@@ -951,10 +951,10 @@ export default function App() {
             </ul>
           </section>
           <section>
-            <h4 className="text-white font-bold mb-2 uppercase text-xs tracking-widest">4. Devoluciones y Arrepentimiento</h4>
+            <h4 className="text-gray-900 font-bold mb-2 uppercase text-xs tracking-widest">4. Devoluciones y Arrepentimiento</h4>
             <p>Conforme a la normativa de la Dirección Nacional de Defensa del Consumidor, el comprador tiene derecho a revocar la compra (Derecho de Arrepentimiento) dentro de los 10 días corridos de recibido el producto.</p>
-            <div className="mt-2 p-3 bg-white/5 rounded-xl border border-white/5 space-y-2">
-              <p className="font-bold text-white text-xs uppercase tracking-widest">Condiciones de Aceptación:</p>
+            <div className="mt-2 p-3 bg-black/5 rounded-xl border border-black/5 space-y-2">
+              <p className="font-bold text-gray-900 text-xs uppercase tracking-widest">Condiciones de Aceptación:</p>
               <ul className="list-disc list-inside space-y-1 text-sm">
                 <li>El producto debe estar sin uso y en perfectas condiciones.</li>
                 <li>Debe conservar su empaque original y todas sus partes.</li>
@@ -973,15 +973,15 @@ export default function App() {
       >
         <div className="space-y-6">
           <section>
-            <h4 className="text-white font-bold mb-2 uppercase text-xs tracking-widest">Protección de Datos</h4>
+            <h4 className="text-gray-900 font-bold mb-2 uppercase text-xs tracking-widest">Protección de Datos</h4>
             <p>En Gripen respetamos su privacidad. Sus datos personales son tratados bajo estricta confidencialidad de acuerdo con la Ley N° 25.326 de Protección de Datos Personales.</p>
           </section>
           <section>
-            <h4 className="text-white font-bold mb-2 uppercase text-xs tracking-widest">Finalidad</h4>
+            <h4 className="text-gray-900 font-bold mb-2 uppercase text-xs tracking-widest">Finalidad</h4>
             <p>La información recolectada tiene como única finalidad el procesamiento de sus pedidos, la mejora de nuestra atención al cliente y, opcionalmente, el envío de novedades sobre la marca.</p>
           </section>
           <section>
-            <h4 className="text-white font-bold mb-2 uppercase text-xs tracking-widest">Seguridad</h4>
+            <h4 className="text-gray-900 font-bold mb-2 uppercase text-xs tracking-widest">Seguridad</h4>
             <p>Implementamos medidas de seguridad técnicas para proteger su información contra accesos no autorizados o alteraciones injustificadas.</p>
           </section>
         </div>

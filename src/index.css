@@ -2,13 +2,13 @@
 
 @theme {
   --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
-  --color-brand-blue: #1E88E5;
-  --color-brand-blue-dark: #1565C0;
-  --color-brand-blue-light: #64B5F6;
-  --color-brand-bg: #2F3034;
-  --color-brand-text: #F7F8FA;
-  --color-brand-metal: #606B77;
-  --color-brand-metal-light: #E9EDF2;
+  --color-brand-blue: #1A73E8;
+  --color-brand-blue-dark: #1557B0;
+  --color-brand-blue-light: #4285F4;
+  --color-brand-bg: #F8FAFC;
+  --color-brand-text: #0F172A;
+  --color-brand-metal: #CBD5E1;
+  --color-brand-metal-light: #F1F5F9;
 }
 
 @layer base {
@@ -23,7 +23,7 @@
 
 @layer utilities {
   .glass-panel {
-    @apply bg-white/5 backdrop-blur-md border border-white/10 shadow-xl;
+    @apply bg-white/80 backdrop-blur-md border border-gray-200 shadow-xl;
   }
 
   .blue-gradient-text {
@@ -43,11 +43,11 @@
   }
 
   .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.1);
     border-radius: 10px;
   }
 
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.2);
   }
 }
