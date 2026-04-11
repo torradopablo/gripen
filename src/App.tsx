@@ -534,8 +534,8 @@ export default function App() {
             >
               <img src="/img/Premium_phone_holder_202604031854.jpeg" className="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Gym" />
               <div className="absolute inset-0 bg-gradient-to-t from-brand-bg/90 via-black/20 to-transparent flex flex-col justify-end p-8">
-                <h3 className="text-2xl font-bold mb-2">GPS Siempre a la Vista</h3>
-                <p className="text-brand-text/70 font-light">En el auto, banca los pozos y las frenadas más bruscas.</p>
+                <h3 className="text-2xl font-bold mb-2">Se adapta a las necesidades de tu rutina</h3>
+                <p className="text-brand-text/70 font-light">En el gym, en el auto, en la oficina o en cualquier lugar.</p>
               </div>
             </motion.div>
 
