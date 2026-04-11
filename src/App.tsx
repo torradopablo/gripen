@@ -769,7 +769,7 @@ export default function App() {
                     <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center border border-green-500/30">
                       <Check className="w-3.5 h-3.5 text-green-400" />
                     </div>
-                    <span className="font-medium">Soporte técnico especializado 24/7</span>
+                    <span className="font-medium">Imanes N52 de máxima potencia</span>
                   </div>
                   <div className="flex items-center gap-3 text-brand-text/80">
                     <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center border border-green-500/30">
